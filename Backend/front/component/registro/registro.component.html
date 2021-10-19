@@ -1,0 +1,32 @@
+
+<div class="body pt-5">
+  <mat-card>
+      <div class="login">
+        <br><br><br><br>
+          <h1>Learning Together</h1>
+          <br>
+          <form id="conctactForm" [formGroup]="log" (ngSubmit)="saveData()">
+            <mat-form-field appearance="fill" class="ancho">
+              <mat-label></mat-label>
+              <input matInput name="usuario" type="usuario" placeholder="usuario" formControlName="usuario">
+              <mat-error *ngIf="log.get('usuario')?.hasError('required')">Campo Obligatorio</mat-error>
+          </mat-form-field><br><br>
+              <mat-form-field appearance="fill" class="ancho">
+                  <mat-label class="label"></mat-label>
+                  <input matInput name="email" type="email" placeholder="email" formControlName="email">
+                  <mat-error *ngIf="log.get('email')?.hasError('required')">Campo Obligatorio</mat-error>
+                  <mat-error *ngIf="log.get('email')?.hasError('pattern')">Ingrese un Email Valido</mat-error>
+              </mat-form-field> <br><br>
+              <mat-form-field appearance="fill" class="ancho">
+                  <mat-label></mat-label>
+                  <input matInput name="password" type="password" placeholder="password" formControlName="password">
+                  <mat-error *ngIf="log.get('password')?.hasError('required')">Campo Obligatorio</mat-error>
+              </mat-form-field>
+              <br><br>
+              <button [routerLink]="['/Principal']" class="ancho button" mat-raised-button color="accent" type="submit">Registrarse</button>
+          </form>
+          <br><br><br><br><br><br><br><br><br><br><br>
+      </div>
+  </mat-card>
+
+</div>

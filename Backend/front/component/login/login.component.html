@@ -1,0 +1,38 @@
+<body>
+<div class="body pt-5">
+    <mat-card>
+        <div class="login">
+            <br><br><br>
+            <h1>Learning Together</h1>
+            <br>
+            <form id="conctactForm" [formGroup]="log" (ngSubmit)="saveData()">
+                <mat-form-field appearance="fill" class="ancho">
+                    <mat-label class="label"></mat-label>
+                    <input matInput name="Email" type="Email" placeholder="Email" formControlName="Email">
+                    <mat-error *ngIf="log.get('Email')?.hasError('required')" color="accent">Campo Obligatorio</mat-error>
+                    <mat-error *ngIf="log.get('Email')?.hasError('pattern')" color="accent">Ingrese un Email Valido</mat-error>
+                </mat-form-field> <br><br>
+                <mat-form-field appearance="fill" class="ancho">
+                    <mat-label></mat-label>
+                    <input matInput name="password" type="password" placeholder="password" formControlName="password">
+                    <mat-error *ngIf="log.get('password')?.hasError('required')">Campo Obligatorio</mat-error>
+                </mat-form-field>
+                <br><br>
+                <button class="ancho button" [routerLink]="['/Principal']" mat-raised-button color="accent" type="submit" >Iniciar sesion</button>
+            </form>
+            <br>
+            <mat-checkbox> Mantener sesion iniciada </mat-checkbox>
+            <br>
+            <br>
+            <p>¿Olvidaste tu contraseña?</p>
+            <p>¿No tienes cuenta?
+                <br><br>
+                <button class="ancho button" mat-button color="accent" [routerLink]="['/Registro']" type="submit" >Registrate</button>
+            </p><br><br><br><br><br><br>
+            <section class="example-section">
+            </section>
+        </div>
+    </mat-card>
+
+</div>
+</body>
