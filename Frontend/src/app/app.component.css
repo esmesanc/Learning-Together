@@ -1,0 +1,44 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  .body {
+    display: flex;
+    justify-content: center;
+    row-gap: 3em;
+    height: 100%;
+    align-items: center;
+}
+
+.login {
+    width: 100%;
+    max-width: 330px;
+    text-align: center;
+}
+
+.ancho {
+    width: 80%;
+    height: 100%;
+}
+
+.fondo {
+    background-color: rgb(62, 71, 192);
+}
+
+.tam {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -100;
+    background-size: cover;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}

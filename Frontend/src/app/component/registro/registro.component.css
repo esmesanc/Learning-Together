@@ -1,0 +1,47 @@
+.body {
+    display: flex;
+    justify-content: center;
+    row-gap: 3em;
+    height: 100%;
+    align-items: center;
+    background-color:#001C40;
+}
+
+.login {
+    width: 100%;
+    max-width: 330px;
+    text-align: center;
+    color:#fff;
+    border-radius:30px;
+}
+
+.ancho {
+    width: 80%;
+    height: 100%;
+    background:#39CCD5;
+    color:#fff;
+    border-radius:30px;
+}
+
+.fondo {
+    background-color:#001C40;
+}
+
+.tam {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -100;
+    background-size: cover;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}

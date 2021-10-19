@@ -1,0 +1,30 @@
+
+<mat-card class="card" fxLayout fxLayoutAlign="center center">
+  <p>Learning Together!</p>
+  <br><br>
+<section fxFlex="30%" class="example-section" [formGroup]="toppings">
+  <h4>Did not you work?</h4>
+  <p><mat-checkbox formControlName="Answer1  "fxLayout="column">Answer 1</mat-checkbox></p>
+  <p><mat-checkbox formControlName="Answere2">Answer 2</mat-checkbox></p>
+  <p><mat-checkbox formControlName="Answere3">Answer 3</mat-checkbox></p>
+</section>
+
+<section fxFlex="30%" class="example-section" [formGroup]="toppings">
+  <h4>why didn´t he speak with you?</h4>
+  <p><mat-checkbox formControlName="Answer1 "fxLayout="column">Answer 1</mat-checkbox></p>
+  <p><mat-checkbox formControlName="Answere2">Answer 2</mat-checkbox></p>
+  <p><mat-checkbox formControlName="Answere3">Answer 3</mat-checkbox></p>
+</section>
+<section fxFlex="30%" class="example-section" [formGroup]="toppings">
+  <h4>when did they arrive?</h4>
+  <p><mat-checkbox formControlName="Answer1  "fxLayout="column">Answer 1</mat-checkbox></p>
+  <p><mat-checkbox formControlName="Answere2">Answer 2</mat-checkbox></p>
+  <p><mat-checkbox formControlName="Answere3">Answer 3</mat-checkbox></p>
+</section>
+
+<section class="example-section" [formGroup]="toppings">
+  <h4>You chose:</h4>
+  {{toppings.value | json}}
+</section>
+<br><br><br><br><br><br> <br><br><br><br>
+</mat-card>
