@@ -19,6 +19,7 @@ export class UsuariosService {
   crearUsuario( usuario: UserModel ){
     //Y vamos a retorar simplente el objeto por defaul del backend
     return this.http.post(`${this.url}/register`,usuario);
+    
     //En esa linea le indicamos que mediando htpp, por medio de un método post
     // a la url que en este caso sería "http://localhost:3000/api/auth/register" nos dará de alta un usuario
     // que es lo que tu especificaste en tu backend mira...
@@ -26,3 +27,8 @@ export class UsuariosService {
   }
 
 }
+
+
+
+
+  
