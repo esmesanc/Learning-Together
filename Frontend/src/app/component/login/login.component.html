@@ -1,12 +1,12 @@
-<body>
+
 <div class="body pt-5">
     <mat-card>
         <div class="login">
             <br><br><br>
             <h1>Learning Together</h1>
             <br>
-            <form id="conctactForm" [formGroup]="log" (ngSubmit)="saveData()">
-                <mat-form-field appearance="fill" class="ancho">
+            <form id="conctactForm" [formGroup]="log" (ngSubmit)="iniciarSesion()">
+                <mat-form-field appearance="fill" class="ancho placeholder">
                     <mat-label class="label"></mat-label>
                     <input matInput name="Email" type="Email" placeholder="Email" formControlName="Email">
                     <mat-error *ngIf="log.get('Email')?.hasError('required')" color="accent">Campo Obligatorio</mat-error>
@@ -18,7 +18,7 @@
                     <mat-error *ngIf="log.get('password')?.hasError('required')">Campo Obligatorio</mat-error>
                 </mat-form-field>
                 <br><br>
-                <button class="ancho button" [routerLink]="['/Principal']" mat-raised-button color="accent" type="submit" >Iniciar sesion</button>
+                <button class="ancho button" mat-raised-button color="accent" type="submit" >Iniciar sesion</button>
             </form>
             <br>
             <mat-checkbox> Mantener sesion iniciada </mat-checkbox>
@@ -35,4 +35,3 @@
     </mat-card>
 
 </div>
-</body>

@@ -21,6 +21,7 @@ router.post('/register', [
         validar
     ],
     registro);
+    
 router.get('/renew', valitarJWT, renuevaToken);
 
 module.exports = router;

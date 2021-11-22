@@ -59,8 +59,8 @@ const getRespuestaSeleccion = async (req, res) => {
     pool.query(
       "SELECT * FROM pregunta_seleccion WHERE idejer = ?",
       [id],
-      (err, rows) => {
-        if (err) reject(err.message);
+      (error, rows) => {
+        if (err0r) reject(err.message);
         if (rows.length > 0) {
           res.json({
             ok: true,
@@ -82,10 +82,10 @@ const getRespuestaEscrita = async (req, res) => {
   const { id } = req.params;
   return new Promise((resolve, reject) => {
     pool.query(
-      "SELECT * FROM pregunta_escita WHERE idejer = ?",
+      "SELECT * FROM pregunta_escrita WHERE idejer = ?",
       [id],
-      (err, rows) => {
-        if (err) reject(err.message);
+      (error, rows) => {
+        if (error) reject(err.message);
         if (rows.length > 0) {
           res.json({
             ok: true,

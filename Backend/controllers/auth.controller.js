@@ -2,13 +2,13 @@ const { pool } = require("../database/config");
 const bcrypt = require("bcryptjs");
 const { generateJWT } = require("../helpers/jwt");
 
-const registro = async (req, res) => {
+const registro = async (req, res) => {  
   try {
     pool.query(
       "SELECT * FROM usuario WHERE correo = ?",
       [req.body.correo],
       async (err, rows) => {
-        if (rows.length > 0) {
+        if ( rows.length ) {
           res.json({ text: "Usuario ya registrado" });
         } else {
           const email = req.body.email;
@@ -16,13 +16,14 @@ const registro = async (req, res) => {
           const salt = bcrypt.genSaltSync();
           req.body.contrasena = bcrypt.hashSync(req.body.contrasena, salt);
           req.body.puntaje=0;
-          pool.query("INSERT INTO usuario set ?", [req.body]);
-          res.json({
-            ok: true,
-            text: "Registro correcto",
-            email: email,
-            token,
-            data: req.body,
+          pool.query("INSERT INTO usuario set ?", [req.body],(errors,result,fields)=>{
+            res.json({
+              ok: true,
+              text: "Usuario Agregado Correctamente",
+              email: email,
+              token,
+              data: req.body,
+            });
           });
         }
       }
@@ -31,7 +32,7 @@ const registro = async (req, res) => {
     console.log(error);
     return res.status(500).json({
       ok: false,
-      Text: "Algo salió mal",
+      text: "Algo salió mal",
     });
   }
 };
@@ -44,12 +45,12 @@ const login = async (req, res) => {
       "SELECT * FROM usuario WHERE correo = ?",
       [req.body.correo],
       async (err, rows) => {
-        if (rows.length > 0) {
+        if (rows != undefined ) {
           bcrypt.compare(
             req.body.contrasena,
             rows[0].contrasena,
-            function (err, ress) {
-              if (err) {
+            function (error, ress) {
+              if (error) {
                 res.json({ ok: false, text: "" + err });
               }
               if (ress) {

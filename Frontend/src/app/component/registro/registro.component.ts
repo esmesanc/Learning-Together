@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar'
+import { UsuariosService } from 'src/services/usuarios.service';
+import { UserModel } from 'src/models/userModel';
 
 
 @Component({
@@ -15,7 +17,8 @@ export class RegistroComponent implements OnInit {
 register;
 
 constructor(
-  private router: Router, private _snackBar: MatSnackBar,private formBuilder: FormBuilder) { 
+  private router: Router, private _snackBar: MatSnackBar,private formBuilder: FormBuilder,
+  private userServices:UsuariosService) { 
 
 this.register = formBuilder.group({
 nombre_usuario:['', [ Validators.required]],
@@ -35,7 +38,35 @@ tiles: any[] = [
 ];
 
 ngOnInit(): void {
-// this.errorMessage = this.Logeo();
+  //
+}
+
+crearUsuario(){
+  //Lo hago así para que entiendas mejor y no se vea todo amontonado
+  //Vamos a inciar con un simple console para que veas.
+  //console.log('Aqui vamos a implementar nuestra primer llamada al backend :>> ');
+  //Lo que prosige es crear un objeto e implementar el metodo por ejemplo
+  // bueno ya no recuerdo como instanciarlo pero eso nada más y ya...
+  const usuario = new UserModel();
+
+  usuario.correo = this.register.value.email;
+  usuario.contrasena = this.register.value.password;
+  usuario.nombre_usuario = this.register.value.nombre_usuario;
+
+  this.userServices.crearUsuario(usuario)
+    .subscribe(
+      res => {
+        const respuestas = Object.values(res);
+        if(respuestas[0]){
+          alert(respuestas[1]);
+          this.router.navigate(["/Login"]);
+        }else{
+          alert(respuestas[1]);
+        }
+      },
+      err => console.error(err)
+    );
+
 }
 
 openSnackBar(message: string, action: string) {

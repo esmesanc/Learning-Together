@@ -1,12 +1,12 @@
 .body {
-    display: flex;
-    justify-content: center;
-    row-gap: 3em;
-    height: 100%;
-    align-items: center;
-    background-color:#001C40;
-}
+  display: flex;
+  justify-content: center;
+  row-gap: 3em;
+  height: 200%;
+  align-items: center;
+  background-color:#001C40;
 
+}
 .login {
     width: 100%;
     max-width: 330px;
@@ -23,9 +23,9 @@
     border-radius:30px;
 }
 
-.fondo {
+/*.fondo {
     background-color:#001C40;
-}
+}*/
 
 .tam {
     min-width: 100%;

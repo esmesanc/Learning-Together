@@ -26,6 +26,10 @@ export class UsuariosService {
     //Hasta este punto, en teoria ya estamos consumiendo el back, ahora falta implementarlo obvio en tu componente vista.. vamos para haya ahora...
   }
 
+  login(usuario:UserModel){
+    return this.http.post(`${this.url}/login`,usuario);
+  }
+
 }
 
 

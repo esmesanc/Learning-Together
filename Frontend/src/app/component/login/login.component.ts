@@ -42,25 +42,29 @@ tiles: any[] = [
 ngOnInit(): void {
 //Este.... hasa acá todo claro.???
 //Vamos a crear una función acá para poder implementar nuestro petición al servidos
-  this.crearUsuario();
 // this.errorMessage = this.Logeo();
 }
 
-crearUsuario(){
-  //Lo hago así para que entiendas mejor y no se vea todo amontonado
-  //Vamos a inciar con un simple console para que veas.
-  console.log('Aqui vamos a implementar nuestra primer llamada al backend :>> ');
-  //Lo que prosige es crear un objeto e implementar el metodo por ejemplo
-  // bueno ya no recuerdo como instanciarlo pero eso nada más y ya...
+
+iniciarSesion(){
   const usuario = new UserModel();
 
-  usuario.correo = "gatito@gmail.com";
-  usuario.contrasena = "123aBc#4";
-  usuario.nombre_usuario = "gatito";
+  usuario.correo = this.log.value.Email;
+  usuario.contrasena = this.log.value.password;
 
-  this.userServices.crearUsuario(usuario);
-
-  console.log('gatito :>> ');
+  this.userServices.login(usuario)
+    .subscribe(
+      res => {
+        const respuestas = Object.values(res);
+        if(respuestas[0]){
+          this.router.navigate(["/Principal"]);
+        }else{
+          console.log('respuestas[1] :>> ', respuestas[1]);
+          alert(respuestas[1]);
+        }
+      },
+      err => console.error(err)
+    );
 }
 
 openSnackBar(message: string, action: string) {

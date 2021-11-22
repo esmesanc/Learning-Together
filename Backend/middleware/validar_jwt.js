@@ -13,18 +13,19 @@ const valitarJWT = (req, res, next) => {
         });
     }
 
-try {
-    var decoded = jwt.verify(token, process.env.SECRET_KEY);
-    console.log(decoded);
-} catch (error) {
-    return res.status(401).json({
-        ok: false,
-        msg: 'Token no valido'
-    });
-}
+    try {
+        var tokenAux = token.replace("Bearer ","");//Verificar esto...
+        var decoded = jwt.verify(tokenAux, process.env.SECRET_KEY);
+        console.log(decoded);
+    } catch (error) {
+        return res.status(401).json({
+            ok: false,
+            msg: 'Token no valido'
+        });
+    }
 
-// Todo bien, todo correcto
-next();
+    // Todo bien, todo correcto
+    next();
 }
 
 module.exports = {

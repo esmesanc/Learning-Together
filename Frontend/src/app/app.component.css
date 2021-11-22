@@ -1,12 +1,6 @@
+
 .example-spacer {
     flex: 1 1 auto;
-  }
-  .body {
-    display: flex;
-    justify-content: center;
-    row-gap: 3em;
-    height: 100%;
-    align-items: center;
 }
 
 .login {

@@ -1,42 +1,28 @@
-<p>Leraning Together</p>
+<div class="col-12">
+    <h1 class="text-light">Topics</h1>
+</div>
+<div class="col-10 offset-1">
+      <button class="ancho3"  (click)="selectTopic(t.id)" *ngFor="let t of temas "> {{ t.nombre }}</button>
+    <!-- <div class="card text-dark bg-info" style="width: 20rem;" *ngFor="let t of temas " >
+      <div class="card-body" (click)="selectTopic(t.id)">
+          <h5 class="card-title">{{ t.nombre }}</h5>
+      </div>
+  </div>-->
+</div>
 
-<body>
-    <ng-container>
-        <mat-card-content>
-            <div fxlayout="row" fxFlex.xs="colum">
-                <mat-form-field>
-                    <h1 class="text-light">Topics</h1>
-                    <mat-card fxFlex="40%" fxFlex.xs="80%" class="card" *ngFor="let t of temas">
-                        <mat-card-header>
-                            <div mat-card-avatar class=" text-center example-header-image"></div>
-                            <mat-card-title [routerLink]="['/']">{{t.nombre}}</mat-card-title>
-
-                        </mat-card-header>
-                    </mat-card><br>
-                </mat-form-field>
-            </div>
-        </mat-card-content>
-        <!-- <div class="modal-container">
-            <div class="modal modal-close">
-                <p class="close">x</p>
-                <button class="ancho1 button" [routerLink]="['/IrregularVerbs']" mat-raised-button color="accent" type="submit">Level 1</button><br>
-                <button class="ancho2 button" [routerLink]="['/IrregularVerbs']" mat-raised-button color="accent" type="submit">Level 2</button><br>
-                <button class="ancho3 button" [routerLink]="['/IrregularVerbs']" mat-raised-button color="accent" type="submit">Level 3</button><br>
-            </div>
-        </div> -->
-    </ng-container>
-
-</body>
-
-
-<!-- Cards with media area 
-       <mat-form-field>
-       <mat-card>
-        <h1 class="text-light">Topicx</h1>
-        <mat-card class="card" *ngFor="let t of temas">{{t.nombre}}</mat-card>
-        <mat-card-header>
-        <mat-card-title> </mat-card-title>
-      </mat-card-header>
-      </mat-card>
-     </mat-form-field>                 
-   </body>-->
+<!-- Modal -->
+<!-- <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="modal-body">...</div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" >
+      Close
+    </button>
+    <button type="button" class="btn btn-primary">Save changes</button>
+  </div> -->
